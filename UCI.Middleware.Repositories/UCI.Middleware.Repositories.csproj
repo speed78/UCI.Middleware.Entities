@@ -10,4 +10,8 @@
     <ProjectReference Include="..\UCI.Middleware.Entities\UCI.Middleware.Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
 </Project>
