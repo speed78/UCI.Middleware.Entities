@@ -1,5 +1,6 @@
 ﻿using UCI.Middleware.Entities.Entities.Ivass;
 using UCI.Middleware.Entities.Enums.Ivass;
+using UCI.Middleware.Services.Implementations;
 
 namespace UCI.Middleware.Services.Interfaces.Specific
 {
@@ -83,23 +84,6 @@ namespace UCI.Middleware.Services.Interfaces.Specific
         /// <returns>The submission associated with the protocol if found</returns>
         Task<ClaimsSubmission> GetByProtocolAsync(string protocol);
 
-
     }
 
-    /// <summary>
-    /// Represents paginated results.
-    /// </summary>
-    /// <typeparam name="T">The entity type</typeparam>
-    public class PaginatedResult<T>
-    {
-        public IEnumerable<T> Items { get; set; } = new List<T>();
-        public int TotalCount { get; set; }
-        public int PageNumber { get; set; }
-        public int PageSize { get; set; }
-        public int TotalPages => (int)Math.Ceiling((double)TotalCount / PageSize);
-        public bool HasPreviousPage => PageNumber > 1;
-        public bool HasNextPage => PageNumber < TotalPages;
-    }
-
-    
 }
