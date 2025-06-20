@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace UCI.Middleware.Entities.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialUciDbCreate : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -44,6 +44,21 @@ namespace UCI.Middleware.Entities.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Scores",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ReceivedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FileName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    FileFullPath = table.Column<string>(type: "nvarchar(1024)", maxLength: 1024, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Scores", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "SubmissionStatuses",
                 columns: table => new
                 {
@@ -54,6 +69,28 @@ namespace UCI.Middleware.Entities.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_SubmissionStatuses", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CorrespondentScores",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ScoreId = table.Column<int>(type: "int", nullable: false),
+                    IdCompany = table.Column<int>(type: "int", nullable: false),
+                    FileName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    FileFullPath = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CorrespondentScores", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CorrespondentScores_Scores_ScoreId",
+                        column: x => x.ScoreId,
+                        principalTable: "Scores",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -324,6 +361,26 @@ namespace UCI.Middleware.Entities.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_CorrespondentScores_FileName",
+                table: "CorrespondentScores",
+                column: "FileName");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CorrespondentScores_IdCompany",
+                table: "CorrespondentScores",
+                column: "IdCompany");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CorrespondentScores_ScoreId",
+                table: "CorrespondentScores",
+                column: "ScoreId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CorrespondentScores_ScoreId_IdCompany",
+                table: "CorrespondentScores",
+                columns: new[] { "ScoreId", "IdCompany" });
+
+            migrationBuilder.CreateIndex(
                 name: "UX_ErrorCodes_Code",
                 table: "ErrorsType",
                 column: "Code",
@@ -340,6 +397,16 @@ namespace UCI.Middleware.Entities.Migrations
                 column: "SubmissionId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Scores_FileName",
+                table: "Scores",
+                column: "FileName");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Scores_ReceivedDate",
+                table: "Scores",
+                column: "ReceivedDate");
+
+            migrationBuilder.CreateIndex(
                 name: "UX_SubmissionStatus_Description",
                 table: "SubmissionStatuses",
                 column: "Description",
@@ -353,10 +420,16 @@ namespace UCI.Middleware.Entities.Migrations
                 name: "ClaimDetailErrorsResponse");
 
             migrationBuilder.DropTable(
+                name: "CorrespondentScores");
+
+            migrationBuilder.DropTable(
                 name: "FlowErrorsResponse");
 
             migrationBuilder.DropTable(
                 name: "ClaimsErrorResponse");
+
+            migrationBuilder.DropTable(
+                name: "Scores");
 
             migrationBuilder.DropTable(
                 name: "ErrorsType");

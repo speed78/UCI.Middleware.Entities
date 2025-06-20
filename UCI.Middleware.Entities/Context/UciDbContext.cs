@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using UCI.Middleware.Entities.Entities.Aia;
 using UCI.Middleware.Entities.Entities.Ivass;
 
 namespace UCI.Middleware.Entities.Context
@@ -18,9 +19,49 @@ namespace UCI.Middleware.Entities.Context
         public DbSet<ErrorType> ErrorCodes { get; set; }
         public DbSet<Correspondent> Correspondents { get; set; }
         public DbSet<SubmissionStatus> SubmissionStatuses { get; set; }
+        public DbSet<Score> Scores { get; set; }
+        public DbSet<CorrespondentScore> CorrespondentScores { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Score>(entity =>
+            {
+                // Index on filename for fast lookups
+                entity.HasIndex(s => s.FileName)
+                    .HasDatabaseName("IX_Scores_FileName");
+
+                // Index on date for sorting
+                entity.HasIndex(s => s.ReceivedDate)
+                    .HasDatabaseName("IX_Scores_ReceivedDate");
+            });
+
+            modelBuilder.Entity<CorrespondentScore>(entity =>
+            {
+                //  Configure the explicit foreign key relationship
+                entity.HasOne(cs => cs.Score)
+                    .WithMany(s => s.CorrespondentScores)
+                    .HasForeignKey(cs => cs.ScoreId)
+                    .OnDelete(DeleteBehavior.Cascade);
+
+                // Index on ScoreId for joins with Scores
+                entity.HasIndex(cs => cs.ScoreId)
+                    .HasDatabaseName("IX_CorrespondentScores_ScoreId");
+
+                // Index on IdCompany for filtering by company
+                entity.HasIndex(cs => cs.IdCompany)
+                    .HasDatabaseName("IX_CorrespondentScores_IdCompany");
+
+                // Index on filename
+                entity.HasIndex(cs => cs.FileName)
+                    .HasDatabaseName("IX_CorrespondentScores_FileName");
+
+                // Composite index for common queries
+                entity.HasIndex(cs => new { cs.ScoreId, cs.IdCompany })
+                    .HasDatabaseName("IX_CorrespondentScores_ScoreId_IdCompany");
+            });
+
+
+
             // ⭐ SUBMISSIONSTATUS CONFIGURATION
             modelBuilder.Entity<SubmissionStatus>(entity =>
             {

@@ -22,6 +22,83 @@ namespace UCI.Middleware.Entities.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("UCI.Middleware.Entities.Entities.Aia.CorrespondentScore", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("FileFullPath")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("FileFullPath");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("FileName");
+
+                    b.Property<int>("IdCompany")
+                        .HasColumnType("int")
+                        .HasColumnName("IdCompany");
+
+                    b.Property<int>("ScoreId")
+                        .HasColumnType("int")
+                        .HasColumnName("ScoreId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FileName")
+                        .HasDatabaseName("IX_CorrespondentScores_FileName");
+
+                    b.HasIndex("IdCompany")
+                        .HasDatabaseName("IX_CorrespondentScores_IdCompany");
+
+                    b.HasIndex("ScoreId")
+                        .HasDatabaseName("IX_CorrespondentScores_ScoreId");
+
+                    b.HasIndex("ScoreId", "IdCompany")
+                        .HasDatabaseName("IX_CorrespondentScores_ScoreId_IdCompany");
+
+                    b.ToTable("CorrespondentScores");
+                });
+
+            modelBuilder.Entity("UCI.Middleware.Entities.Entities.Aia.Score", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("FileFullPath")
+                        .IsRequired()
+                        .HasMaxLength(1024)
+                        .HasColumnType("nvarchar(1024)");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<DateTime>("ReceivedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FileName")
+                        .HasDatabaseName("IX_Scores_FileName");
+
+                    b.HasIndex("ReceivedDate")
+                        .HasDatabaseName("IX_Scores_ReceivedDate");
+
+                    b.ToTable("Scores");
+                });
+
             modelBuilder.Entity("UCI.Middleware.Entities.Entities.Ivass.ClaimDetailErrorResponse", b =>
                 {
                     b.Property<int>("Id")
@@ -824,6 +901,17 @@ namespace UCI.Middleware.Entities.Migrations
                         });
                 });
 
+            modelBuilder.Entity("UCI.Middleware.Entities.Entities.Aia.CorrespondentScore", b =>
+                {
+                    b.HasOne("UCI.Middleware.Entities.Entities.Aia.Score", "Score")
+                        .WithMany("CorrespondentScores")
+                        .HasForeignKey("ScoreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Score");
+                });
+
             modelBuilder.Entity("UCI.Middleware.Entities.Entities.Ivass.ClaimDetailErrorResponse", b =>
                 {
                     b.HasOne("UCI.Middleware.Entities.Entities.Ivass.ClaimErrorResponse", "Claim")
@@ -889,6 +977,11 @@ namespace UCI.Middleware.Entities.Migrations
                     b.Navigation("Error");
 
                     b.Navigation("Submission");
+                });
+
+            modelBuilder.Entity("UCI.Middleware.Entities.Entities.Aia.Score", b =>
+                {
+                    b.Navigation("CorrespondentScores");
                 });
 
             modelBuilder.Entity("UCI.Middleware.Entities.Entities.Ivass.ClaimErrorResponse", b =>
