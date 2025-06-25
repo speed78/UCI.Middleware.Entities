@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCI.Middleware.Services", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCI.Middleware.Integrations", "UCI.Middleware.Integrations\UCI.Middleware.Integrations.csproj", "{54F9BFF5-971D-49B5-B9AE-AD5F60C17003}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCI.Middleware.Integrations.Tests", "UCI.Middleware.Integrations.Tests\UCI.Middleware.Integrations.Tests.csproj", "{FD0060C1-A0E5-4D15-B6FB-3DA964DB5009}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{54F9BFF5-971D-49B5-B9AE-AD5F60C17003}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54F9BFF5-971D-49B5-B9AE-AD5F60C17003}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54F9BFF5-971D-49B5-B9AE-AD5F60C17003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD0060C1-A0E5-4D15-B6FB-3DA964DB5009}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD0060C1-A0E5-4D15-B6FB-3DA964DB5009}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD0060C1-A0E5-4D15-B6FB-3DA964DB5009}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD0060C1-A0E5-4D15-B6FB-3DA964DB5009}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

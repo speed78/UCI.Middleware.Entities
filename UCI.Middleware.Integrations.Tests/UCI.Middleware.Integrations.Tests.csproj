@@ -1,0 +1,56 @@
+<!-- UCI.Middleware.Integrations.Tests.csproj -->
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<IsPackable>false</IsPackable>
+		<IsTestProject>true</IsTestProject>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- Test Framework -->
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+		<PackageReference Include="NUnit" Version="3.14.0" />
+		<PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+		<PackageReference Include="coverlet.collector" Version="6.0.0" />
+
+		<!-- Testcontainers - QUESTI SONO FONDAMENTALI -->
+		<PackageReference Include="Testcontainers.Azurite" Version="3.6.0" />
+
+		<!-- Entity Framework -->
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.6" />
+
+
+		<!-- Azure Storage -->
+		<PackageReference Include="Azure.Storage.Blobs" Version="12.19.1" />
+
+		<!-- Microsoft Extensions -->
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.6" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.6" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.6" />
+		<PackageReference Include="Testcontainers.MsSql" Version="4.6.0" />
+		<PackageReference Include="Testcontainers.ServiceBus" Version="4.6.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Reference ai tuoi progetti esistenti -->
+		<ProjectReference Include="..\UCI.Middleware.Entities\UCI.Middleware.Entities.csproj" />
+		<!-- Aggiungi altri progetti se necessario -->
+		<!-- <ProjectReference Include="..\UCI.Middleware.Api\UCI.Middleware.Api.csproj" /> -->
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="appsettings.Test.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Base\" />
+	  <Folder Include="Helpers\" />
+	  <Folder Include="Infrastructure\" />
+	</ItemGroup>
+
+</Project>
