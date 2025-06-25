@@ -1,13 +1,11 @@
-﻿using NUnit.Framework;
-using Testcontainers.MsSql;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System.Threading.Tasks;
+using NUnit.Framework;
+using Testcontainers.MsSql;
 using UCI.Middleware.Entities.Context;
 using UCI.Middleware.Entities.Entities.Ivass;
-using UCI.Middleware.Entities.Entities.Aia;
 
-namespace UCI.Middleware.Tests.IntegrationTests
+namespace UCI.Middleware.Integrations.Tests
 {
     [TestFixture]
     public class UciDbContextIntegrationTests
