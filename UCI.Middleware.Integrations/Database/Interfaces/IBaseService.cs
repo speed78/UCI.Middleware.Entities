@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace UCI.Middleware.Services.Interfaces
+namespace UCI.Middleware.Integrations.Database.Interfaces
 {
     /// <summary>
     /// Base service interface providing common business operations for entities.

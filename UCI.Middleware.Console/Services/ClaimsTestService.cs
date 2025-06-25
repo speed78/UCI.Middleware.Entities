@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using UCI.Middleware.Entities.Enums.Ivass;
-using UCI.Middleware.Integration.Database.Interfaces;
+using UCI.Middleware.Integrations.Database.Interfaces;
 
 namespace UCI.Middleware.Console.Services
 {
@@ -165,4 +165,14 @@ namespace UCI.Middleware.Console.Services
             _logger.LogInformation($"  Status: {responseSubmission.SubmissionStatusId}");
         }
     }
+    public class TestData
+    {
+        public Guid? LastSubmissionId { get; set; }
+        public string? LastUploadedFileName { get; set; }
+        public string? LastUploadedFileUrl { get; set; }
+        public string? LastMovedFileName { get; set; }
+        public string? LastMovedFileUrl { get; set; }
+        public string? LastBackupFileName { get; set; }
+    }
+
 }

@@ -1,9 +1,8 @@
 ﻿using UCI.Middleware.Entities.Entities.Ivass;
 using UCI.Middleware.Entities.Enums.Ivass;
-using UCI.Middleware.Integration.Database.Implementation;
-using UCI.Middleware.Services.Interfaces;
+using UCI.Middleware.Integrations.Database.Implementation;
 
-namespace UCI.Middleware.Integration.Database.Interfaces
+namespace UCI.Middleware.Integrations.Database.Interfaces
 {
     /// <summary>
     /// Service interface for ClaimsSubmission business operations.

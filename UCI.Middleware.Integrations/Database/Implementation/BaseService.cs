@@ -1,9 +1,9 @@
 ﻿using System.Linq.Expressions;
 using Microsoft.Extensions.Logging;
+using UCI.Middleware.Integrations.Database.Interfaces;
 using UCI.Middleware.Repositories.Interfaces;
-using UCI.Middleware.Services.Interfaces;
 
-namespace UCI.Middleware.Integration.Database.Implementation
+namespace UCI.Middleware.Integrations.Database.Implementation
 {
     /// <summary>
     /// Base service implementation providing common business operations with logging and validation.

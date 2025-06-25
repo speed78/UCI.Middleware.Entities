@@ -3,12 +3,12 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using UCI.Middleware.Integration.Storage.Configuration;
-using UCI.Middleware.Integration.Storage.Interfaces;
-using UCI.Middleware.Integration.Storage.Models;
-using BlobInfo = UCI.Middleware.Integration.Storage.Models.BlobInfo;
+using UCI.Middleware.Integrations.Storage.Configuration;
+using UCI.Middleware.Integrations.Storage.Interfaces;
+using UCI.Middleware.Integrations.Storage.Models;
+using BlobInfo = UCI.Middleware.Integrations.Storage.Models.BlobInfo;
 
-namespace UCI.Middleware.Integration.Storage.Implementation
+namespace UCI.Middleware.Integrations.Storage.Implementation
 {
     public class StorageService : IStorageService
     {

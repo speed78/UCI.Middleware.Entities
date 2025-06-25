@@ -1,6 +1,6 @@
-﻿using UCI.Middleware.Integration.Storage.Models;
+﻿using UCI.Middleware.Integrations.Storage.Models;
 
-namespace UCI.Middleware.Integration.Storage.Interfaces
+namespace UCI.Middleware.Integrations.Storage.Interfaces
 {
     public interface IStorageService
     {

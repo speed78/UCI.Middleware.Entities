@@ -11,4 +11,8 @@
     <ProjectReference Include="..\UCI.Middleware.Repositories\UCI.Middleware.Repositories.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Implementation\" />
+  </ItemGroup>
+
 </Project>

@@ -19,8 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UCI.Middleware.Integration\UCI.Middleware.Integration.csproj" />
-    <ProjectReference Include="..\UCI.Middleware.Services\UCI.Middleware.Services.csproj" />
+    <ProjectReference Include="..\UCI.Middleware.Integrations\UCI.Middleware.Integrations.csproj" />
   </ItemGroup>
 
   <ItemGroup>

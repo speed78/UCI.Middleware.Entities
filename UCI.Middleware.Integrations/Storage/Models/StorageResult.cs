@@ -1,4 +1,4 @@
-﻿namespace UCI.Middleware.Integration.Storage.Models
+﻿namespace UCI.Middleware.Integrations.Storage.Models
 {
     public class StorageResult<T>
     {

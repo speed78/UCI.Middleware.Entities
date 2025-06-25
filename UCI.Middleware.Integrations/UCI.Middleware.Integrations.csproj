@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Redis\" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="Azure.Storage.Blobs" Version="12.19.1" />
+	  <PackageReference Include="StackExchange.Redis" Version="2.7.10" />
+	  <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.17.1" />
+	  <PackageReference Include="Azure.Communication.Email" Version="1.0.1" />
+	  <PackageReference Include="Microsoft.ApplicationInsights" Version="2.21.0" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.6" />
+
+	  <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.6" />
+
+	  <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.6" />
+	  <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.6" />
+
+	  <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.6" />
+	  <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="8.0.0" />
+	  <PackageReference Include="AspNetCore.HealthChecks.AzureStorage" Version="7.0.0" />
+	  <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UCI.Middleware.Entities\UCI.Middleware.Entities.csproj" />
+    <ProjectReference Include="..\UCI.Middleware.Repositories\UCI.Middleware.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>

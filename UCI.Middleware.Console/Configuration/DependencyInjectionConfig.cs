@@ -4,9 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using UCI.Middleware.Console.Services;
 using UCI.Middleware.Entities.Context;
-using UCI.Middleware.Integration.Database.Implementation;
-using UCI.Middleware.Integration.Database.Interfaces;
-using UCI.Middleware.Repositories.Extensions;
+using UCI.Middleware.Integrations.Database.Implementation;
+using UCI.Middleware.Integrations.Database.Interfaces;
+using UCI.Middleware.Integrations.Extensions;
 
 
 namespace UCI.Middleware.Console.Configuration
@@ -24,19 +24,16 @@ namespace UCI.Middleware.Console.Configuration
                 builder.SetMinimumLevel(LogLevel.Debug);
             });
 
-            // Configurazione del database - SOSTITUISCI "YourDbContext" con il nome reale del tuo DbContext
-            // Ad esempio: UCIMiddlewareDbContext, IvassDbContext, etc.
-            services.AddDbContext<UciDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            services.AddUciIntegrationsServices<UciDbContext>(configuration);
 
-            // Usa l'extension method del tuo progetto per registrare i repository
-            services.AddUciRepositories<UciDbContext>();
 
             // Service layer
             services.AddScoped<IClaimsSubmissionService, ClaimsSubmissionService>();
 
             // Application services
             services.AddScoped<ClaimsTestService>();
+            services.AddSingleton<TestData>();
+            services.AddScoped<StorageServiceTests>();
 
             return services;
         }

@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCI.Middleware.Repositories
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCI.Middleware.Services", "UCI.Middleware.Services\UCI.Middleware.Services.csproj", "{8EDC73F6-2BD5-42B5-8206-8E159505B571}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCI.Middleware.Integration", "UCI.Middleware.Integration\UCI.Middleware.Integration.csproj", "{54F9BFF5-971D-49B5-B9AE-AD5F60C17003}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UCI.Middleware.Integrations", "UCI.Middleware.Integrations\UCI.Middleware.Integrations.csproj", "{54F9BFF5-971D-49B5-B9AE-AD5F60C17003}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
