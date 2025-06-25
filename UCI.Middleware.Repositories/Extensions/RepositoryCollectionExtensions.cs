@@ -11,7 +11,7 @@ namespace UCI.Middleware.Repositories.Extensions
     /// <summary>
     /// Extension methods for configuring repository services in the dependency injection container.
     /// </summary>
-    public static class ServiceCollectionExtensions
+    public static class RepositoryCollectionExtensions
     {
         /// <summary>
         /// Adds UCI Middleware repository services to the specified IServiceCollection.

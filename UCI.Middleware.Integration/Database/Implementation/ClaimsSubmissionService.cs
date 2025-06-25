@@ -1,13 +1,11 @@
 ﻿using Microsoft.Extensions.Logging;
 using UCI.Middleware.Entities.Entities.Ivass;
 using UCI.Middleware.Entities.Enums.Ivass;
-using UCI.Middleware.Repositories.Implementations;
+using UCI.Middleware.Integration.Database.Interfaces;
 using UCI.Middleware.Repositories.Interfaces;
-using UCI.Middleware.Services.Implementations;
 using UCI.Middleware.Services.Interfaces;
-using UCI.Middleware.Services.Interfaces.Specific;
 
-namespace UCI.Middleware.Services.Implementations.Specific
+namespace UCI.Middleware.Integration.Database.Implementation
 {
     /// <summary>
     /// Service implementation for ClaimsSubmission business operations.

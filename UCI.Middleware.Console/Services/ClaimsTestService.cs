@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using UCI.Middleware.Entities.Enums.Ivass;
-using UCI.Middleware.Services.Interfaces.Specific;
+using UCI.Middleware.Integration.Database.Interfaces;
 
 namespace UCI.Middleware.Console.Services
 {

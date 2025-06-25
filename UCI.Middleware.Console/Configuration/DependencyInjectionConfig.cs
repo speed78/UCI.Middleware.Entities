@@ -4,9 +4,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using UCI.Middleware.Console.Services;
 using UCI.Middleware.Entities.Context;
+using UCI.Middleware.Integration.Database.Implementation;
+using UCI.Middleware.Integration.Database.Interfaces;
 using UCI.Middleware.Repositories.Extensions;
-using UCI.Middleware.Services.Implementations.Specific;
-using UCI.Middleware.Services.Interfaces.Specific;
+
 
 namespace UCI.Middleware.Console.Configuration
 {
